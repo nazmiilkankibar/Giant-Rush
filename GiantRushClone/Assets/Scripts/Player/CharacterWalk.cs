@@ -36,7 +36,7 @@ public class CharacterWalk : MonoBehaviour, IDragHandler, IPointerUpHandler,IPoi
     {
         if (canTurnNormalRot)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.zero), Time.deltaTime);
+            character.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.zero), Time.deltaTime);
         }
     }
 }
