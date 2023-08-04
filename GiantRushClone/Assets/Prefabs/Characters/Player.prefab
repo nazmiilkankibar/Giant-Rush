@@ -1506,6 +1506,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   currentColor: 2
+  materials:
+  - {fileID: 2100000, guid: 56ff3f3cba9a97b4aac5403e91c91139, type: 2}
+  - {fileID: 2100000, guid: 1ab3f9a5d131f3f4a8e9822c76d77475, type: 2}
+  - {fileID: 2100000, guid: 22b7a514721665843bb307eeecb8f2e6, type: 2}
 --- !u!54 &4152511148979699248
 Rigidbody:
   m_ObjectHideFlags: 0

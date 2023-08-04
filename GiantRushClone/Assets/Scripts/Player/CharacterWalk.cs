@@ -18,7 +18,7 @@ public class CharacterWalk : MonoBehaviour, IDragHandler, IPointerUpHandler,IPoi
         character.position = pos;
 
         Quaternion rot = child.rotation;
-        rot.y = Mathf.Clamp(rot.y + (eventData.delta.x / 100), -.1f, .1f);
+        rot.y = Mathf.Clamp(rot.y + (eventData.delta.x / 100), -.5f, .5f);
         child.rotation = rot;
     }
 

@@ -9,9 +9,12 @@ public class CharacterController : MonoBehaviour
     private Animator anim;
     public CurrentColor currentColor;
     private TakeableCharacterVFX takeableCharacterVFX;
+    [SerializeField] private Material[] materials = new Material[3];
+    private Transform child;
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        child = transform.GetChild(0).transform;
+        anim = GetComponentInChildren<Animator>();
         takeableCharacterVFX = GameObject.FindGameObjectWithTag("TakeableCharacterVFX").GetComponent<TakeableCharacterVFX>();
     }
     private void Update()
@@ -32,10 +35,49 @@ public class CharacterController : MonoBehaviour
         {
             if (currentColor == other.GetComponent<TakeableCharacter>().currentColor)
             {
-                transform.localScale += Vector3.one * .01f;
+                child.localScale += Vector3.one * .02f;
                 other.gameObject.SetActive(false);
                 takeableCharacterVFX.SetActiveVFX(other.transform);
             }
+            else
+            {
+                if (child.localScale.x > .5f)
+                {
+                    child.localScale -= Vector3.one * .05f;
+                }
+                other.gameObject.SetActive(false);
+                takeableCharacterVFX.SetActiveVFX(other.transform);
+            }
+        }
+        if (other.CompareTag("Obstacle"))
+        {
+            if (child.localScale.x > .1f)
+            {
+                child.localScale -= Vector3.one * .1f;
+            }
+        }
+    }
+    public void ChangeColor(string colorName)
+    {
+        switch (colorName)
+        {
+            case "Red":
+                currentColor = CurrentColor.Red;
+                child.GetChild(0).GetComponent<Renderer>().material = materials[0];
+                child.GetChild(1).GetComponent<Renderer>().material = materials[0];
+                break;
+            case "Green":
+                currentColor = CurrentColor.Green;
+                child.GetChild(0).GetComponent<Renderer>().material = materials[1];
+                child.GetChild(1).GetComponent<Renderer>().material = materials[1];
+                break;
+            case "Blue":
+                currentColor = CurrentColor.Blue;
+                child.GetChild(0).GetComponent<Renderer>().material = materials[2];
+                child.GetChild(1).GetComponent<Renderer>().material = materials[2];
+                break;
+            default:
+                break;
         }
     }
 }
