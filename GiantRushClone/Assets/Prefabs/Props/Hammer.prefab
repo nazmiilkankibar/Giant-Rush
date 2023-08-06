@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1177792553116802184}
   - component: {fileID: 8855404481301781761}
   - component: {fileID: 380103080842126835}
+  - component: {fileID: 3694050315985365806}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203473437569515103}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.104, y: 0.16847266, z: -0.308}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1177792553116802184
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93,9 +94,22 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203473437569515103}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.025955075
-  m_Height: 0.1832885
-  m_Direction: 2
-  m_Center: {x: -0.28053296, y: 0.000116072595, z: -0.0006413609}
+  m_Radius: 0.0794751
+  m_Height: 1.4878665
+  m_Direction: 0
+  m_Center: {x: -0.78429806, y: 0.00011607369, z: -0.0006413595}
+--- !u!65 &3694050315985365806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203473437569515103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27011728, y: 0.2517525, z: 0.7499997}
+  m_Center: {x: -1.3941674, y: 0, z: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8829645062650364161}
   - component: {fileID: 5357062088534029818}
   - component: {fileID: 5067374038472118316}
-  - component: {fileID: 5357062088534029819}
+  - component: {fileID: 9091848185605086286}
   m_Layer: 0
   m_Name: H-Gear
   m_TagString: Untagged
@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132079234987439907}
-  m_LocalRotation: {x: -0.45451954, y: 0.5416752, z: 0.5416751, w: 0.4545196}
+  m_LocalRotation: {x: -0.45451948, y: 0.5416752, z: 0.5416752, w: 0.45451948}
   m_LocalPosition: {x: -0.841, y: 0.051, z: -3.682}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.05}
+  m_LocalScale: {x: 0.04078, y: 0.04078, z: 0.02039}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 100}
 --- !u!33 &5357062088534029818
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -85,17 +85,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5357062088534029819
-MeshCollider:
+--- !u!135 &9091848185605086286
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132079234987439907}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4821300124380478740, guid: 23549d7cc9b2f844dbfb9cee86a2937b, type: 3}
+  serializedVersion: 2
+  m_Radius: 5.500002
+  m_Center: {x: -0.054630756, y: 0, z: 2.5000012}

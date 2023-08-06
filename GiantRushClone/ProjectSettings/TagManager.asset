@@ -13,6 +13,9 @@ TagManager:
   - TakeableCharacterVFX
   - Obstacle
   - LevelCounter
+  - GameManager
+  - GainedObjects
+  - Gem
   layers:
   - Default
   - TransparentFX
