@@ -14,11 +14,11 @@ public class CharacterWalk : MonoBehaviour, IDragHandler, IPointerUpHandler,IPoi
     public void OnDrag(PointerEventData eventData)
     {
         Vector3 pos = character.position;
-        pos.x = Mathf.Clamp(pos.x + (eventData.delta.x / 100), -1, 1);
+        pos.x = Mathf.Clamp(pos.x + (eventData.delta.x / 1000), -1f, 1f);
         character.position = pos;
 
         Quaternion rot = child.rotation;
-        rot.y = Mathf.Clamp(rot.y + (eventData.delta.x / 100), -.5f, .5f);
+        rot.y = Mathf.Clamp(rot.y + (eventData.delta.x / 100), -.2f, .2f);
         child.rotation = rot;
     }
 

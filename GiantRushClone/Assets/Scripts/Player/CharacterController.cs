@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     private Animator anim;
     public CurrentColor currentColor;
     private TakeableCharacterVFX takeableCharacterVFX;
+    [SerializeField] private TakenLevelTexts takenLevelTexts;
     [SerializeField] private Material[] materials = new Material[3];
     private Transform child;
     private void Start()
@@ -38,6 +39,7 @@ public class CharacterController : MonoBehaviour
                 child.localScale += Vector3.one * .02f;
                 other.gameObject.SetActive(false);
                 takeableCharacterVFX.SetActiveVFX(other.transform);
+                takenLevelTexts.SetActiveText(transform, "+1");
             }
             else
             {
@@ -47,6 +49,7 @@ public class CharacterController : MonoBehaviour
                 }
                 other.gameObject.SetActive(false);
                 takeableCharacterVFX.SetActiveVFX(other.transform);
+                takenLevelTexts.SetActiveText(transform, "-1");
             }
         }
         if (other.CompareTag("Obstacle"))

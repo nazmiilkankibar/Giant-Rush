@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - TakeableCharacterVFX
   - Obstacle
+  - LevelCounter
   layers:
   - Default
   - TransparentFX

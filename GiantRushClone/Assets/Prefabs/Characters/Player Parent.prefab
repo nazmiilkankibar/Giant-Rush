@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   currentColor: 2
+  takenLevelTexts: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 56ff3f3cba9a97b4aac5403e91c91139, type: 2}
   - {fileID: 2100000, guid: 1ab3f9a5d131f3f4a8e9822c76d77475, type: 2}
@@ -90,6 +91,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 957449439801068169}
     m_Modifications:
+    - target: {fileID: 1976342979120402219, guid: 6132ded621f1ecf43bc824a4a05582d6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8545447256379345787, guid: a1aa6398182082243b5232d4e45bb5a7,
+        type: 3}
     - target: {fileID: 4152511148979699249, guid: 6132ded621f1ecf43bc824a4a05582d6,
         type: 3}
       propertyPath: m_Enabled
@@ -97,9 +104,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4152511148979699250, guid: 6132ded621f1ecf43bc824a4a05582d6,
         type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: a1aa6398182082243b5232d4e45bb5a7, type: 3}
+    - target: {fileID: 4152511148979699250, guid: 6132ded621f1ecf43bc824a4a05582d6,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7720725391464055751, guid: 6132ded621f1ecf43bc824a4a05582d6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7070831255929112694, guid: a1aa6398182082243b5232d4e45bb5a7,
+        type: 3}
     - target: {fileID: 8333781437193843641, guid: 6132ded621f1ecf43bc824a4a05582d6,
         type: 3}
       propertyPath: m_RootOrder

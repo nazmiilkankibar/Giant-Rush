@@ -199,6 +199,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole
       objectReference: {fileID: 0}
+    - target: {fileID: 5061807504376528661, guid: 1e830d65e5cadf44c8e5f22da4ebb921,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2278449845601626105, guid: b407047041f9525428a0d90821a331fa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e830d65e5cadf44c8e5f22da4ebb921, type: 3}
 --- !u!4 &5785946798612590777 stripped
@@ -289,6 +295,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pole (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061807504376528661, guid: 1e830d65e5cadf44c8e5f22da4ebb921,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2278449845601626105, guid: b407047041f9525428a0d90821a331fa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e830d65e5cadf44c8e5f22da4ebb921, type: 3}
 --- !u!4 &7394025759181063518 stripped

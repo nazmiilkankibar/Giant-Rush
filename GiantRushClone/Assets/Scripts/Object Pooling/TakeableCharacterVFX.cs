@@ -15,12 +15,13 @@ public class TakeableCharacterVFX : MonoBehaviour
     }
     public void SetActiveVFX(Transform target)
     {
-        destroyEffect[currentIndex].SetActive(true);
-        destroyEffect[currentIndex].transform.position = target.position;
-        currentIndex++;
         if (currentIndex >= 20)
         {
             currentIndex = 0;
         }
+        destroyEffect[currentIndex].SetActive(true);
+        destroyEffect[currentIndex].transform.position = target.position + Vector3.up * .5f;
+        currentIndex++;
+        
     }
 }
