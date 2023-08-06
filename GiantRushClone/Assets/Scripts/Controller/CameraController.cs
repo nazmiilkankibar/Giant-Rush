@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         //transform.position = Vector3.Lerp(transform.position, player.position + offset, speed * Time.deltaTime);
         transform.position = Vector3.SmoothDamp(transform.position, player.position + offset, ref velocity, smoothTime);

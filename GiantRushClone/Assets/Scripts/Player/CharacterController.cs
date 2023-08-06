@@ -59,9 +59,13 @@ public class CharacterController : MonoBehaviour
         }
         else if (other.CompareTag("Obstacle"))
         {
-            if (child.localScale.x > .1f)
+            if (child.localScale.x > .5f)
             {
                 child.localScale -= Vector3.one * .1f;
+                if (child.localScale.x < .5f)
+                {
+                    child.localScale = Vector3.one * .5f;
+                }
             }
         }
         else if (other.CompareTag("Gem"))

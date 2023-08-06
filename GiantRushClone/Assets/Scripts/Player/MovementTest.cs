@@ -17,7 +17,7 @@ public class MovementTest : MonoBehaviour
     {
         cam = Camera.main;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,6 +30,10 @@ public class MovementTest : MonoBehaviour
             newPosition = touchpos - dragPos;
             newPosition.x = Mathf.Clamp(newPosition.x, -1f, 1f);
             movePosition.position += new Vector3(-newPosition.x * .1f, 0, 0);
+        }
+        else
+        {
+            movePosition.position = Vector3.MoveTowards(movePosition.position, new Vector3(transform.forward.x, 0, movePosition.position.z), speed * Time.deltaTime);
         }
         if (start)
         {
