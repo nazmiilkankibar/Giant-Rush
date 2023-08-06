@@ -29,7 +29,7 @@ public class CharacterController : MonoBehaviour
         }
         if (start)
         {
-            gameObject.transform.Translate(0, 0, speed * Time.deltaTime);
+            //gameObject.transform.Translate(0, 0, speed * Time.deltaTime);
             anim.SetBool("Running", true);
         }
     }
