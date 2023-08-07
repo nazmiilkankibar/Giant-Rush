@@ -14,6 +14,7 @@ public class MovementTest : MonoBehaviour
     public Transform movePosition;
     private CharacterController cc;
     private bool start = false;
+    private bool fighting;
     public bool canMove;
 
     public Transform endPosition;
@@ -30,7 +31,7 @@ public class MovementTest : MonoBehaviour
             GoToFightPosition();
             return;
         }
-        if (!canMove)
+        if (!canMove && !fighting)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -50,6 +51,11 @@ public class MovementTest : MonoBehaviour
                 SetMovePositionXPosition();
             }
         }
+        if (fighting)
+        {
+            
+            Fighting();
+        }
     }
 
     private void GoToFightPosition()
@@ -58,7 +64,9 @@ public class MovementTest : MonoBehaviour
         if (Vector3.Distance(transform.position, endPosition.position + new Vector3(0, 0, 2f)) < .1f)
         {
             canMove = false;
+            fighting = true;
             anim.SetBool("Running", false);
+            anim.SetBool("FightingIdle", true);
         }
         return;
     }
@@ -96,5 +104,23 @@ public class MovementTest : MonoBehaviour
         canMove = true;
         start = false;
         cam.GetComponent<CameraController>().canMove = true;
+    }
+    private void Fighting()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            int randomPunch = Random.Range(0, 2);
+            switch (randomPunch)
+            {
+                case 0:
+                    anim.SetTrigger("LeftPunch");
+                    break;
+                case 1:
+                    anim.SetTrigger("RightPunch");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
