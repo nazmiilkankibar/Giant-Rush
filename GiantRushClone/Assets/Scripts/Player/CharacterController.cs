@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    private bool start = false;
+    
     public float speed;
-    private Animator anim;
+    
     public CurrentColor currentColor;
     private TakeableCharacterVFX takeableCharacterVFX;
     [SerializeField] private TakenLevelTexts takenLevelTexts;
@@ -17,21 +17,8 @@ public class CharacterController : MonoBehaviour
     private void Start()
     {
         child = transform.GetChild(0).transform;
-        anim = GetComponentInChildren<Animator>();
         takeableCharacterVFX = GameObject.FindGameObjectWithTag("TakeableCharacterVFX").GetComponent<TakeableCharacterVFX>();
         gainedObjects = GameObject.FindGameObjectWithTag("GainedObjects").GetComponent<GainedObjects>();
-    }
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            start = true;
-        }
-        if (start)
-        {
-            //gameObject.transform.Translate(0, 0, speed * Time.deltaTime);
-            anim.SetBool("Running", true);
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -39,42 +26,64 @@ public class CharacterController : MonoBehaviour
         {
             if (currentColor == other.GetComponent<TakeableCharacter>().currentColor)
             {
-                child.localScale += Vector3.one * .02f;
-                other.gameObject.SetActive(false);
-                takeableCharacterVFX.SetActiveVFX(other.transform);
-                takenLevelTexts.SetActiveText(transform, "+1");
-                gainedObjects.SetTakenExpText(1);
+                IncreaseScale(other);
             }
             else
             {
-                if (child.localScale.x > .51f)
-                {
-                    child.localScale -= Vector3.one * .02f;
-                }
-                other.gameObject.SetActive(false);
-                takeableCharacterVFX.SetActiveVFX(other.transform);
-                takenLevelTexts.SetActiveText(transform, "-1");
-                gainedObjects.SetTakenExpText(-1);
+                ReduceScaleWithWrongColor(other);
             }
         }
         else if (other.CompareTag("Obstacle"))
         {
-            if (child.localScale.x > .5f)
-            {
-                child.localScale -= Vector3.one * .1f;
-                if (child.localScale.x < .5f)
-                {
-                    child.localScale = Vector3.one * .5f;
-                }
-            }
+            ReduceScaleWithObstacle();
         }
         else if (other.CompareTag("Gem"))
         {
-            other.gameObject.SetActive(false);
-            takenGemVFX.SetActiveVFX(transform);
-            gainedObjects.SetTakenGemText();
+            TakeGem(other);
+        }
+
+    }
+
+    private void TakeGem(Collider other)
+    {
+        other.gameObject.SetActive(false);
+        takenGemVFX.SetActiveVFX(transform);
+        gainedObjects.SetTakenGemText();
+    }
+
+    private void IncreaseScale(Collider other)
+    {
+        child.localScale += Vector3.one * .02f;
+        other.gameObject.SetActive(false);
+        takeableCharacterVFX.SetActiveVFX(other.transform);
+        takenLevelTexts.SetActiveText(transform, "+1");
+        gainedObjects.SetTakenExpText(1);
+    }
+
+    private void ReduceScaleWithWrongColor(Collider other)
+    {
+        if (child.localScale.x > .51f)
+        {
+            child.localScale -= Vector3.one * .02f;
+        }
+        other.gameObject.SetActive(false);
+        takeableCharacterVFX.SetActiveVFX(other.transform);
+        takenLevelTexts.SetActiveText(transform, "-1");
+        gainedObjects.SetTakenExpText(-1);
+    }
+
+    private void ReduceScaleWithObstacle()
+    {
+        if (child.localScale.x > .5f)
+        {
+            child.localScale -= Vector3.one * .1f;
+            if (child.localScale.x < .5f)
+            {
+                child.localScale = Vector3.one * .5f;
+            }
         }
     }
+
     public void ChangeColor(string colorName)
     {
         switch (colorName)

@@ -16,6 +16,7 @@ TagManager:
   - GameManager
   - GainedObjects
   - Gem
+  - EndPoint
   layers:
   - Default
   - TransparentFX
