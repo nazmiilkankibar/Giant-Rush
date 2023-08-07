@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementTest : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Vector2 touchpos;
@@ -14,15 +14,23 @@ public class MovementTest : MonoBehaviour
     public Transform movePosition;
     private CharacterController cc;
     private bool start = false;
-    private bool fighting;
+    public bool fighting;
     public bool canMove;
 
     public Transform endPosition;
+
+    private GameManager gm;
+    public float maxHealth;
+    private float currentHealth;
+    private BossController boss;
     private void Start()
     {
         cam = Camera.main;
         anim = GetComponentInChildren<Animator>();
         endPosition = GameObject.FindGameObjectWithTag("EndPoint").transform;
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossController>();
+        currentHealth = maxHealth;
     }
     private void FixedUpdate()
     {
@@ -63,6 +71,7 @@ public class MovementTest : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, endPosition.position + new Vector3(0,0,2f), speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, endPosition.position + new Vector3(0, 0, 2f)) < .1f)
         {
+            gm.ChangeUI();
             canMove = false;
             fighting = true;
             anim.SetBool("Running", false);
@@ -122,5 +131,14 @@ public class MovementTest : MonoBehaviour
                     break;
             }
         }
+    }
+    public void Damage()
+    {
+        boss.TakeDamage();
+    }
+    public void TakeDamage()
+    {
+        currentHealth -= 10;
+        gm.PlayerHealthBar(currentHealth / maxHealth);
     }
 }

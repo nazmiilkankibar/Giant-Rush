@@ -17,6 +17,7 @@ TagManager:
   - GainedObjects
   - Gem
   - EndPoint
+  - Boss
   layers:
   - Default
   - TransparentFX
