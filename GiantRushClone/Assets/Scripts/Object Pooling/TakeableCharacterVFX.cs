@@ -19,7 +19,6 @@ public class TakeableCharacterVFX : MonoBehaviour
         {
             currentIndex = 0;
         }
-        print(currentIndex);
         destroyEffect[currentIndex].SetActive(true);
         destroyEffect[currentIndex].transform.position = target.position + Vector3.up * .5f;
         currentIndex++;
